@@ -102,7 +102,10 @@ class _HaveThisTaskState extends State<HaveThisTask> {
         appBar: AppBar(
           elevation: 0.1,
           backgroundColor: Colors.red,
-          title: new Text("Trashcan Information"),
+          title: new Text(
+            "Trashcan Information",
+            style: TextStyle(letterSpacing: 3.0),
+          ),
         ),
         body: info == null
             ? new Center(child: new CircularProgressIndicator())

@@ -61,9 +61,12 @@ class _LoginPageState extends State<LoginPage> {
       await saveData();
       print("rg3na mn l shared");
       print(resBody["token"]);
+      Toast.show("Login Successfully", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       await loadToken(resBody["token"]);
-    } else if (resp.statusCode == 401 || resp.statusCode == 400) {
-      print("Error to login");
+    } else {
+      Toast.show("Telephone Number and Password don't match", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 
@@ -172,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
             child: new Text(
               "Smart Trashcan",
               style: TextStyle(
-                  color: Colors.greenAccent,
+                  color: Colors.black45,
                   fontSize: 35.0,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic),

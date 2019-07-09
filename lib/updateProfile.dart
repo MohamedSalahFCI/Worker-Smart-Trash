@@ -201,7 +201,7 @@ class _UpdateProfiledataState extends State<UpdateProfiledata> {
       appBar: AppBar(
         title: new Text(
           "Update Profile",
-          style: TextStyle(letterSpacing: 0.8),
+          style: TextStyle(letterSpacing: 6.0),
         ),
         backgroundColor: Colors.red,
       ),

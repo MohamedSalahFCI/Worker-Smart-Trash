@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:toast/toast.dart';
 import 'package:a_smart_trash/home.dart';
+import 'globals.dart' as globals;
 
 class ContactUs extends StatefulWidget {
   final String firstName;
@@ -87,6 +88,7 @@ class _ContactUsState extends State<ContactUs> {
       print("Message Sent Successfully");
       Navigator.push(
           context, new MaterialPageRoute(builder: (context) => new HomePage()));
+      globals.count = 0;
       Toast.show("Message Sent Successfully", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     } else {

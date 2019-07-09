@@ -14,7 +14,8 @@ import 'globals.dart' as globals;
 class MyStepper extends StatefulWidget {
   final String dbToken;
   final int theID;
-  MyStepper({this.dbToken, this.theID});
+  final String numberToChechQR;
+  MyStepper({this.dbToken, this.theID, this.numberToChechQR});
   @override
   _MyStepperState createState() => _MyStepperState();
 }
@@ -27,6 +28,7 @@ class _MyStepperState extends State<MyStepper> {
   File _image2;
   String theToken;
   int notificationID;
+  String chechQR;
   Future getFirstImg(bool isCam) async {
     File img;
     img = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -71,6 +73,7 @@ class _MyStepperState extends State<MyStepper> {
         resp.statusCode == 204) {
       Toast.show("Task Finish Complete", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      globals.count = 0;
       Navigator.pushReplacement(
           context, new MaterialPageRoute(builder: (context) => HomePage()));
     } else {
@@ -87,6 +90,7 @@ class _MyStepperState extends State<MyStepper> {
     setState(() {
       theToken = widget.dbToken.toString();
       notificationID = widget.theID;
+      chechQR = widget.numberToChechQR;
     });
   }
 
@@ -111,10 +115,13 @@ class _MyStepperState extends State<MyStepper> {
               print("B Null Ya kpeer mesh haynf3");
               Toast.show("You Must Read QR Firts", context,
                   duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-            } else {
+            } else if (_reader == 'FCI Trash Number $chechQR') {
               setState(() {
                 this._currentStep = this._currentStep + 1;
               });
+            } else {
+              Toast.show("QR is incorrect", context,
+                  duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
             }
           } else if (_currentStep == 1) {
             if (_image1 == null || _image2 == null) {

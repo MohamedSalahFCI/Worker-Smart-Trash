@@ -108,6 +108,7 @@ class _FullTrashCycleState extends State<FullTrashCycle> {
             builder: (context) => MyStepper(
                   dbToken: yourToken,
                   theID: theid,
+                  numberToChechQR: trashcanNumber,
                 )));
   }
 
@@ -141,7 +142,10 @@ class _FullTrashCycleState extends State<FullTrashCycle> {
         appBar: AppBar(
           elevation: 0.1,
           backgroundColor: Colors.red,
-          title: new Text("Trashcan Information"),
+          title: new Text(
+            "Trashcan Information",
+            style: TextStyle(letterSpacing: 3.0),
+          ),
         ),
         body: info == null
             ? new Center(child: new CircularProgressIndicator())

@@ -127,7 +127,6 @@ class _AlllNotificationState extends State<AlllNotification> {
     setData();
     this.getAllNotifications();
     globals.count = 0;
-  
   }
 
   Widget _listView(_data) => new ListView.builder(

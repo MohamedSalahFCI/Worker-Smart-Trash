@@ -61,7 +61,10 @@ class _ReplyingMessageState extends State<ReplyingMessage> {
       onWillPop: loadData2,
       child: Scaffold(
         appBar: AppBar(
-          title: new Text("Trashcan Reply"),
+          title: new Text(
+            "Trashcan Reply",
+            style: TextStyle(letterSpacing: 3.0),
+          ),
           elevation: 0.1,
           backgroundColor: Colors.red,
         ),
